@@ -63,7 +63,7 @@ const EpisodeList = () => {
           </div>
         )}
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center py-4">
         <button
           onClick={handlePrevPage}
           disabled={currentPage === 1}
@@ -71,6 +71,20 @@ const EpisodeList = () => {
         >
           Previous
         </button>
+        <div className="flex justify-center">
+          <ul className="flex">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <li
+                key={index}
+                className={`px-4 py-2 mx-1 cursor-pointer text-lg font-bold text-white rounded-full shadow-lg hover:bg-gray-700 ${currentPage === index + 1 ? "bg-green-500" : "bg-gray-800"
+                  }`}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </li>
+            ))}
+          </ul>
+        </div>
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
@@ -79,20 +93,7 @@ const EpisodeList = () => {
           Next
         </button>
       </div>
-      <div className="flex justify-center mt-4">
-        <ul className="flex">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <li
-              key={index}
-              className={`px-4 py-2 mx-1 cursor-pointer text-lg font-bold text-white rounded-full shadow-lg hover:bg-gray-700 ${currentPage === index + 1 ? "bg-green-500" : "bg-gray-800"
-                }`}
-              onClick={() => handlePageChange(index + 1)}
-            >
-              {index + 1}
-            </li>
-          ))}
-        </ul>
-      </div>
+
     </>
   );
 };

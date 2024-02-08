@@ -48,7 +48,7 @@ const EpisodeDetail = () => {
             {isLoading ? (
                 <div>Loading...</div>
             ) : episode ? (
-                <div className={`${styles.marginY}`}>
+                <div className={`${styles.paddingY}`}>
                     <h2 className="mb-4 text-3xl font-bold">{episode.name}</h2>
                     <p><strong>Episode:</strong> {episode.episode}</p>
                     <p><strong>Air Date:</strong> {episode.air_date}</p>
