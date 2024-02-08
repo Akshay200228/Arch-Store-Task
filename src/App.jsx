@@ -4,6 +4,7 @@ import Home from'./pages/Home';
 import { CharacterDetail, CharacterShow } from './components/Charactes';
 import { EpisodeList, EpisodeDetail } from './components/Episodes';
 import Navbar from'./components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/episode/:id" element={<EpisodeDetail />} />
         </Routes>
       </div>
+        <Footer />
     </BrowserRouter>
   );
 }

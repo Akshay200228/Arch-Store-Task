@@ -52,7 +52,7 @@ const TopChar = () => {
                             <CharacterCard key={character.id} character={character} />
                         ))}
                     </div>
-                    <div className="flex justify-center mt-8">
+                    <div className={`flex justify-center ${styles.marginY}`}>
                         <Link to="/characters" className="inline-block px-6 py-3 text-lg font-bold text-white transition duration-300 ease-in-out bg-orange-500 rounded-full shadow-lg hover:bg-orange-700">
                             View More Characters
                         </Link>
