@@ -9,9 +9,6 @@ const styles = {
     padding: "sm:px-16 px-6 sm:py-12 py-4",
     marginX: "sm:mx-16 mx-6",
     marginY: "sm:my-16 my-6",
-    preloaderText: "text-4xl text-white animate-pulse",
-    pulsatingAnimation: 'animation: pulsate 2s ease-in-out infinite;',
-    gradientAnimation: 'animation: gradient 3s linear infinite;',
 };
 
 export default styles;

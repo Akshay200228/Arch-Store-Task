@@ -44,7 +44,7 @@ const CharacterDetail = () => {
     }, [id]);
 
     return (
-        <div className={`mx-auto  ${styles.paddingX} h-screen`}>
+        <div className={`mx-auto  ${styles.paddingX} ${styles.paddingY}`}>
             <div className="mt-6 text-start">
                 <button onClick={() => navigate(-1)} className="flex items-center px-4 py-2 text-lg font-bold text-white bg-gray-600 rounded-full shadow-lg hover:bg-gray-800">
                     <FaArrowLeft className="mr-2" /> Go Back

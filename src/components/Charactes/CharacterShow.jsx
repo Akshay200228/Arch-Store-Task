@@ -87,7 +87,7 @@ const CharacterShow = () => {
     return (
         <>
             <h1 className="my-8 text-2xl font-bold text-center text-gray-300 md:text-4xl">Rick and Morty Characters</h1>
-            <div className="relative flex justify-start mb-4 ml-4">
+            <div className="relative flex-row justify-start mb-4 ml-4 md:flex">
                 <div className="relative mb-4">
                     <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none text-slate-900">
                         <FaSearch />
@@ -100,7 +100,7 @@ const CharacterShow = () => {
                         onChange={handleSearch}
                     />
                 </div>
-                <div className="flex justify-start mb-4 ml-4">
+                <div className="flex justify-start mb-4 ml-0 md:ml-4">
                     <div className="flex items-center mr-4">
                         <input
                             type="checkbox"
