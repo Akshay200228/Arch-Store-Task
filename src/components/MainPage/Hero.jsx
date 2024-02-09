@@ -8,6 +8,7 @@ import CountUp from "react-countup";
 import axios from 'axios';
 import Ricky from "../../assets/ricky2.png";
 import { Link } from 'react-router-dom';
+import { DropDownLoader } from '../SkeltonLoading';
 
 const Hero = () => {
     const navigate = useNavigate();
@@ -15,6 +16,7 @@ const Hero = () => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [searchResults, setSearchResults] = useState([]);
     const [firstThreeCharacters, setFirstThreeCharacters] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -39,11 +41,14 @@ const Hero = () => {
     useEffect(() => {
         if (searchTerm.trim() !== '') {
             const fetchCharacters = async () => {
+                setIsLoading(true);
                 try {
                     const response = await axios.get(`https://rickandmortyapi.com/api/character/?name=${searchTerm}`);
                     setSearchResults(response.data.results);
                 } catch (error) {
                     console.error('Error fetching characters:', error);
+                } finally {
+                    setIsLoading(false);
                 }
             };
             fetchCharacters();
@@ -117,7 +122,7 @@ const Hero = () => {
                                     src={character.image}
                                     alt={character.name}
                                     className="w-12 h-12 border-2 border-white rounded-full shadow-lg"
-                                    style={{ zIndex: firstThreeCharacters.length - index }} // Set the z-index to create the overlap effect
+                                    style={{ zIndex: firstThreeCharacters.length - index }}
                                 />
                             </Link>
                         ))}
@@ -126,22 +131,25 @@ const Hero = () => {
                 </div>
 
                 {/* End of search input */}
-                {showDropdown && ( // Render dropdown only when showDropdown is true
+                {showDropdown && (
                     <div className="absolute z-10 mt-8 overflow-x-auto overflow-y-auto bg-white shadow-md rounded-2xl w-72 h-96 text-slate-700 scrollbar-thin scrollbar-thumb-slate-500">
                         {/* Render search results */}
-                        {searchResults.map((character) => (
-                            <div
-                                key={character.id}
-                                className="flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200"
-                                onClick={() => {
-                                    navigate(`/characters/${character.id}`);
-                                    setShowDropdown(false);
-                                }}
-                            >
-                                <img src={character.image} alt={character.name} className="object-cover w-12 h-12 rounded-full" />
-                                {character.name}
-                            </div>
-                        ))}
+                        {isLoading ? (
+                            <DropDownLoader count={5} />
+                        ) : (
+                            searchResults.map((character) => (
+                                <div
+                                    key={character.id}
+                                    className="flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200"
+                                    onClick={() => {
+                                        navigate(`/characters/${character.id}`);
+                                        setShowDropdown(false);
+                                    }}
+                                >
+                                    <img src={character.image} alt={character.name} className="object-cover w-12 h-12 rounded-full" />
+                                    {character.name}
+                                </div>
+                            )))}
                     </div>
                 )}
                 {/* End of search dropdown */}
