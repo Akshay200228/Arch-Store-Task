@@ -95,7 +95,7 @@ const CharacterDetail = () => {
                     </div>
                 </div>
             ) : (
-                <div className="text-center">Character not found.</div>
+                <div className="text-center text-gray-200">Character not found.</div>
             )}
         </div>
     );

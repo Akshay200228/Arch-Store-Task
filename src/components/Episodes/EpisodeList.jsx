@@ -77,8 +77,7 @@ const EpisodeList = () => {
             {Array.from({ length: totalPages }, (_, index) => (
               <li
                 key={index}
-                className={`px-4 py-2 mx-1 cursor-pointer text-lg font-bold text-white rounded-full shadow-lg ${currentPage === index + 1 ? "bg-green-500" : "bg-gray-800 hover:bg-gray-700"
-                  }`}
+                className={`px-4 py-2 mx-1 cursor-pointer text-lg font-bold text-white rounded-full shadow-lg ${currentPage === index + 1 ? "bg-green-500" : "bg-gray-800 hover:bg-gray-700"}`}
                 onClick={() => handlePageChange(index + 1)}
               >
                 {index + 1}
