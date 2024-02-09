@@ -11,7 +11,7 @@ const CharacterCard = ({ character }) => {
     };
 
     return (
-        <Link to={`/characters/${character.id}`}>
+        <div>
             <motion.div
                 className="overflow-hidden bg-gray-900 rounded-lg shadow-lg"
                 initial="hidden"
@@ -37,13 +37,15 @@ const CharacterCard = ({ character }) => {
                     <p className="mb-2 text-gray-400">Origin: <span className='text-gray-200'>{character.origin.name}</span></p>
                     <p className="mb-4 text-gray-400">Last known location: <span className='text-gray-200'>{character.location.name}</span></p>
                     <div className="flex justify-center">
-                        <button className="w-full px-4 py-2 text-lg font-bold text-center text-white transition duration-300 ease-in-out bg-green-500 rounded-full shadow-lg hover:bg-green-700">
-                            Explore
-                        </button>
+                        <Link to={`/characters/${character.id}`} className='w-full'>
+                            <button className="w-full px-4 py-2 text-lg font-bold text-center text-white transition duration-300 ease-in-out bg-green-500 rounded-full shadow-lg hover:bg-green-700">
+                                Explore
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </motion.div>
-        </Link>
+        </div>
     );
 };
 

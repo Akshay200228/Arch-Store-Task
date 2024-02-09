@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import EpisodeCard from "./EpisodeCard";
 import styles from '../../style'
+import { EpisodeCardSkeleton } from "../SkeltonLoading";
 
 const EpisodeList = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -54,9 +55,9 @@ const EpisodeList = () => {
       <div className={`${styles.paddingX} ${styles.marginY}`}>
         <h3 className="mb-4 text-2xl font-bold text-center">All Episodes</h3>
         {isLoading ? (
-          <div>Loading...</div>
+          <EpisodeCardSkeleton count={12} />
         ) : (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid min-h-screen grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {episodes.map((episode) => (
               <EpisodeCard key={episode.id} episode={episode} />
             ))}

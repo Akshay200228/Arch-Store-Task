@@ -166,7 +166,7 @@ const Hero = () => {
                 </motion.div>
             </motion.div>
 
-            <motion.div className="w-full lg:w-1/2 lg:pl-8" variants={itemVariants}>
+            <motion.div className="hidden w-full md:block lg:w-1/2 lg:pl-8" variants={itemVariants}>
                 <motion.img
                     src={Ricky}
                     alt="Rick and Morty"

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../../style';
-import { Loader } from '../Loader';
 import { Link } from 'react-router-dom';
 import { CharacterCard } from '../Charactes';
+import { Loader } from '../SkeltonLoading';
 
 const TopChar = () => {
     const [randomCharacters, setRandomCharacters] = useState([]);
@@ -41,7 +41,7 @@ const TopChar = () => {
     };
 
     return (
-        <div className={`${styles.paddingX} ${styles.marginX}`}>
+        <div className={`${styles.marginX} ${styles.padding}`}>
             <p className="mb-8 text-4xl font-bold text-center text-gray-200 lg:text-6xl">Discover Popular Characters</p>
             {isLoading ? (
                 <Loader count={8} />

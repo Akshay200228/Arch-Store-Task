@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Loader } from '../Loader';
 import { FaSearch } from 'react-icons/fa';
 import CharacterCard from './CharacterCard';
 import styles from '../../style';
 import { Link } from 'react-router-dom';
+import { DropDownLoader, Loader } from '../SkeltonLoading';
 
 const CharacterShow = () => {
     const [characters, setCharacters] = useState([]);
@@ -133,22 +133,26 @@ const CharacterShow = () => {
                 {showDropdown && (
                     <div className="absolute z-10 mt-16 overflow-x-auto overflow-y-auto bg-white rounded-md shadow-md w-72 h-96 text-slate-700 scrollbar-thin scrollbar-thumb-slate-500">
                         {/* Render suggestions here */}
-                        {filteredCharacters.map((character) => (
-                            <Link
-                            to={`/characters/${character.id}`}
-                                key={character.id}
-                                className="flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200"
-                            >
-                                <img src={character.image} alt={character.name} className="object-cover w-12 h-12 rounded-full" />{character.name}
-                            </Link>
-                        ))}
+                        {isLoading ? (
+                            <DropDownLoader count={5} />
+                        ) : (
+                            filteredCharacters.map((character) => (
+                                <Link
+                                    to={`/characters/${character.id}`}
+                                    key={character.id}
+                                    className="flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200"
+                                >
+                                    <img src={character.image} alt={character.name} className="object-cover w-12 h-12 rounded-full" />{character.name}
+                                </Link>
+                            ))
+                        )}
                     </div>
                 )}
             </div>
             {isLoading ? (
                 <Loader count={9} />
             ) : (
-                <div className="grid grid-cols-1 gap-8 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="grid min-h-screen grid-cols-1 gap-8 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {filteredCharacters.map((character) => (
                         <CharacterCard key={character.id} character={character} />
                     ))}

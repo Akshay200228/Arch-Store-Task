@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import styles from '../../style';
 import { FaArrowLeft } from 'react-icons/fa';
+import { CharacterDetailsSkeleton } from '../SkeltonLoading';
 
 const CharacterDetail = () => {
     const { id } = useParams();
@@ -52,7 +53,7 @@ const CharacterDetail = () => {
             </div>
 
             {isLoading ? (
-                <div className="text-center">Loading...</div>
+                <CharacterDetailsSkeleton />
             ) : character ? (
                 <div className={`${styles.marginY}`}>
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

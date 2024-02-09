@@ -3,6 +3,7 @@ import axios from "axios";
 import styles from "../../style";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa";
+import { CharacterCardSkeleton } from "../SkeltonLoading";
 
 const EpisodeDetail = () => {
     const { id } = useParams();
@@ -46,7 +47,7 @@ const EpisodeDetail = () => {
                 </button>
             </div>
             {isLoading ? (
-                <div>Loading...</div>
+                <CharacterCardSkeleton count={12} />
             ) : episode ? (
                 <div className={`${styles.paddingY}`}>
                     <h2 className="mb-4 text-3xl font-bold">{episode.name}</h2>
