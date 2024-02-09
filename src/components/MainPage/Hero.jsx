@@ -7,6 +7,7 @@ import { statistics } from '../../constant/index';
 import CountUp from "react-countup";
 import axios from 'axios';
 import Ricky from "../../assets/ricky2.png";
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     const navigate = useNavigate();
@@ -107,8 +108,9 @@ const Hero = () => {
                         variants={fadeInUpVariants}
                     >
                         {firstThreeCharacters.map((character, index) => (
-                            <div
+                            <Link
                                 key={character.id}
+                                to={`/characters/${character.id}`}
                                 className={`relative ${index !== 0 ? '-ml-6' : ''}`} // Add a negative left margin to all images except the first one
                             >
                                 <img
@@ -117,7 +119,7 @@ const Hero = () => {
                                     className="w-12 h-12 border-2 border-white rounded-full shadow-lg"
                                     style={{ zIndex: firstThreeCharacters.length - index }} // Set the z-index to create the overlap effect
                                 />
-                            </div>
+                            </Link>
                         ))}
                     </motion.div>
 
