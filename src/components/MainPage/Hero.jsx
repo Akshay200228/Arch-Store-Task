@@ -96,7 +96,7 @@ const Hero = () => {
                         </div>
                         <input
                             type="text"
-                            className="w-full px-4 py-3 pl-10 bg-gray-200 border border-gray-700 rounded-full text-slate-700 md:w-80 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-3 pl-10 bg-gray-200 border border-gray-700 rounded-full text-slate-700 md:w-80 focus:outline-none focus:ring-2 focus:ring-green-500"
                             placeholder="Search by character name"
                             value={searchTerm}
                             onChange={(e) => handleSearch(e.target.value)}

@@ -94,7 +94,7 @@ const CharacterShow = () => {
                     </div>
                     <input
                         type="text"
-                        className="w-auto px-4 py-2 pl-10 bg-gray-200 border border-gray-700 rounded-md text-slate-700 md:w-80 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-auto px-4 py-2 pl-10 bg-gray-200 border border-gray-700 rounded-md text-slate-700 md:w-80 focus:outline-none focus:ring-2 focus:ring-green-500"
                         placeholder="Search by character name"
                         value={searchTerm}
                         onChange={handleSearch}
