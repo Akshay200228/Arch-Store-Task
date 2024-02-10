@@ -25,7 +25,7 @@ export const Loader = ({ count }) => {
 
 export const DropDownLoader = ({ count }) => {
     return (
-        <div className="absolute z-10 mt-16 overflow-x-hidden overflow-y-auto bg-white rounded-md shadow-md w-72 h-96 text-slate-700 scrollbar-thin scrollbar-thumb-slate-500">
+        <div className="absolute z-10 overflow-x-hidden overflow-y-auto bg-white rounded-md shadow-md w-72 h-96 text-slate-700 scrollbar-thin scrollbar-thumb-slate-500">
             {[...Array(count)].map((_, index) => (
                 <div key={index} className="flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200">
                     <div className="w-12 h-12 overflow-hidden bg-gray-500 rounded-full skeleton-shimmer" />

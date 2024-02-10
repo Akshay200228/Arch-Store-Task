@@ -132,15 +132,17 @@ const Hero = () => {
 
                 {/* End of search input */}
                 {showDropdown && (
-                    <div className="absolute z-10 mt-8 overflow-x-auto overflow-y-auto bg-white shadow-md rounded-2xl w-72 h-96 text-slate-700 scrollbar-thin scrollbar-thumb-slate-500">
+                    <div className="absolute z-10 mt-8 overflow-x-auto overflow-y-auto shadow-md bg-slate-500 rounded-2xl w-72 h-96 text-slate-300 scrollbar-thin scrollbar-thumb-slate-500">
                         {/* Render search results */}
                         {isLoading ? (
                             <DropDownLoader count={5} />
+                        ) : searchResults.length === 0 ? (
+                            <div className="p-4 text-center text-red-500">Not found</div>
                         ) : (
                             searchResults.map((character) => (
                                 <div
                                     key={character.id}
-                                    className="flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200"
+                                    className="flex items-center gap-4 p-2 cursor-pointer hover:bg-gray-200 hover:text-slate-800"
                                     onClick={() => {
                                         navigate(`/characters/${character.id}`);
                                         setShowDropdown(false);
